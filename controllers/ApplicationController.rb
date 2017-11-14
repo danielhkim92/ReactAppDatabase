@@ -8,7 +8,7 @@ class ApplicationController <  Sinatra::Base
 
 	ActiveRecord::Base.establish_connection(
 		:adapter => 'postgresql',
-		:database => 'todo',
+		:database => 'personalitytypes',
 		)
 
 	configure do
@@ -31,31 +31,39 @@ class ApplicationController <  Sinatra::Base
 	set :views, File.expand_path('../views', File.dirname(__FILE__))
 
 		get '/' do
-		@tasks = Todo.all
-		@tasks.to_json
+		@types = Types.all
+		@types.to_json
 
 	end
 
 	get '/:id' do
-		@task = Todo.find_by(id: params[:id])
-		@task
+		@type = Types.find_by(id: params[:id])
+		@type
 
 	end
 
 	post '/' do
-		@task = Todo.new
-		@task.name = params[:name]
-		@task.save
-		@task = Todo.all
-		@items.to_jason
+		@type = Types.new
+		@type.name = params[:name]
+		@type.save
+		@type = Types.all
+		@type.to_jason
 		"saved"
 	end
 
 	delete '/:id' do 
-		@task = Todo.find_by(id: params[:id])
-		@task.delete
-		@task.save
+		@type = Types.find_by(id: params[:id])
+		@type.delete
+		@type.save
 		'deleted'
+	end
+
+		put '/:id' do
+		@type = Types.find_by(id: params[:id])
+		@type.name = params[:name]
+		@type.priority = params[:priority]
+		@type.save
+		"put"
 	end
 
 

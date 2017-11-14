@@ -1,6 +1,5 @@
 require 'sinatra/base'
 require './controllers/ApplicationController'
-require './models/Types'
 
 
 
