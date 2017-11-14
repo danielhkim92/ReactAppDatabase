@@ -1,4 +1,4 @@
-class PersonalityTypes < ActiveRecord::Base
+class Types < ActiveRecord::Base
 
 
 

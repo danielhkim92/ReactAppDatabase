@@ -38,12 +38,11 @@ class ApplicationController <  Sinatra::Base
 	get '/:id' do
 		@type = Types.find_by(id: params[:id])
 		@type.to_json
-		'hi'
 	end
 
 	post '/' do
 		@type = Types.new
-		@type.name = params[:name]
+		@type.title = params[:title]
 		@type.youtubelink1 = params[:youtubelink1]
 		@type.youtubelink2 = params[:youtubelink2]
 		@type.youtubelink3 = params[:youtubelink3]
@@ -71,7 +70,7 @@ class ApplicationController <  Sinatra::Base
 
 		put '/:id' do
 		@type = Types.find_by(id: params[:id])
-		@type.name = params[:name]
+		@type.title = params[:title]
 		@type.youtubelink1 = params[:youtubelink1]
 		@type.youtubelink2 = params[:youtubelink2]
 		@type.youtubelink3 = params[:youtubelink3]

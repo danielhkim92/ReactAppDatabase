@@ -4,7 +4,7 @@ CREATE DATABASE personalitytypes;
 
 CREATE TABLE types (
 	id SERIAL PRIMARY KEY,
-	name VARCHAR(10),
+	title VARCHAR(10),
 	youtubelink1 VARCHAR(255),
 	youtubelink2 VARCHAR(255),
 	youtubelink3 VARCHAR(255),
@@ -18,14 +18,4 @@ CREATE TABLE types (
 	career VARCHAR(5000),
 	work VARCHAR(5000),
 	conclusion VARCHAR(5000)
-);
-
-CREATE TABLE users (
-	id SERIAL PRIMARY KEY,
-	user VARCHAR(55)
-);
-
-CREATE TABLE comments (
-	id SERIAL PRIMARY KEY,
-	comment VARCHAR(255)
 );
