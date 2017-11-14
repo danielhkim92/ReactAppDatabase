@@ -26,18 +26,19 @@ class ApplicationController <  Sinatra::Base
 	end
 
 
-	set :views, File.expand_path('../views', File.dirname(__FILE__))
 
-		get '/' do
+	get '/' do
 		@types = Types.all
 		@types.to_json
+		
+
 
 	end
 
 	get '/:id' do
 		@type = Types.find_by(id: params[:id])
 		@type.to_json
-
+		'hi'
 	end
 
 	post '/' do
