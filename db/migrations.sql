@@ -19,3 +19,13 @@ CREATE TABLE types (
 	work VARCHAR(5000),
 	conclusion VARCHAR(5000)
 );
+
+CREATE TABLE users (
+	id SERIAL PRIMARY KEY,
+	user VARCHAR(55)
+);
+
+CREATE TABLE comments (
+	id SERIAL PRIMARY KEY,
+	comment VARCHAR(255)
+);
