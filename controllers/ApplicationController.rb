@@ -2,8 +2,7 @@ class ApplicationController <  Sinatra::Base
 	
 	require 'bundler'
 	Bundler.require
-	register Sinatra::CrossOrigin
-	register Sinatra::ActiveRecordExtension
+
 
 
 	ActiveRecord::Base.establish_connection(
@@ -28,12 +27,9 @@ class ApplicationController <  Sinatra::Base
 	end
 
 
-	set :views, File.expand_path('../views', File.dirname(__FILE__))
-
-		get '/' do
+	get '/' do
 		@types = Type.all
 		@types.to_json
-
 	end
 
 	get '/:id' do
@@ -45,11 +41,11 @@ class ApplicationController <  Sinatra::Base
 	post '/' do
 		@type = Type.new
 		@type.title = params[:title]
-		@type.youtubelink1 = params[:youtubelink1]
-		@type.youtubelink2 = params[:youtubelink2]
-		@type.youtubelink3 = params[:youtubelink3]
-		@type.intro = params[:intro]
-		@type.conclusion = params[:conclusion]
+		# @type.youtubelink1 = params[:youtubelink1]
+		# @type.youtubelink2 = params[:youtubelink2]
+		# @type.youtubelink3 = params[:youtubelink3]
+		# @type.intro = params[:intro]
+		# @type.conclusion = params[:conclusion]
 		@type.save
 		@types = Type.all
 		@types.to_jason
